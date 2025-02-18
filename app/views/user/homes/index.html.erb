@@ -1,2 +1,41 @@
-<h1>User::Homes#index</h1>
-<p>Find me in app/views/user/homes/index.html.erb</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+    <!-- Hero Section -->
+	<section class="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center px-6 py-12">
+	    <div class="md:w-1/2 space-y-4 text-center md:text-left">
+	        <h1 class="text-4xl font-bold">Drink Pure Water Save Health <span class="text-red-600">Water</span>.</h1>
+	        <p class="text-gray-600">Provide a network for all your needs with ease and fun using LaslesVPN, discover interesting features from us.</p>
+	        <button class="bg-red-600 text-white px-6 py-3 rounded-lg">Get Started</button>
+	    </div>
+	    <div class="md:w-1/2 mt-6 md:mt-0 text-center">
+	        <img src="<%= image_path 'waterboy.png' %>" alt="Illustration" class="w-60 md:w-80 mx-auto">
+	    </div>
+	</section>
+
+    <!-- Latest Products Section -->
+    <div class="max-w-screen-xl mx-auto mt-8 p-4">
+        <h2 class="text-2xl font-bold mb-4">Latest Products</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <% 6.times do %>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <img src="<%= image_path 'image.jpg' %>" alt="Product" class="w-full h-60 object-cover rounded">
+                <h3 class="mt-2 text-lg font-semibold">Title goes here</h3>
+                <p class="text-gray-600">Lorem ipsum dolor sit amet, adipiscing elit.</p>
+                <div class="flex justify-between items-center mt-2">
+                    <span class="text-red-500 font-bold">$25.75</span>
+                    <span class="text-gray-500">Reviews (24)</span>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center p-4 mt-8 max-w-screen-xl mx-auto">
+        <p>&copy;Copyright Water @Pvt Ltd © 2025</p>
+    </footer>
+
