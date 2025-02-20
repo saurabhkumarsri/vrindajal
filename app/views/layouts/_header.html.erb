@@ -1,16 +1,26 @@
 <body class="bg-gray-100">
     <!-- Navbar -->
     <nav class="bg-white shadow-md py-4 px-6 flex justify-between items-center max-w-screen-xl mx-auto ">
+    	
         <div class="text-2xl font-bold text-red-600">Water</div>
+        <%if current_user.present?%>
         <ul class="hidden md:flex space-x-6 text-gray-600">
             <li class="border-b-2 border-red-600 pb-1">Home</li>
-            <li>Booking</li>
-            <li>History</li>
+            <li><a href="<%#=new_user_session%>"> Booking</li>
+            <li><a href="<%#=new_user_registration%>">History</li>
             <li>Testimonial</li>
         </ul>
+        <%end%>
         <div class="space-x-4">
-            <button class="text-gray-600">Sign In</button>
-            <button class="border border-red-600 text-red-600 px-4 py-2 rounded-full">Sign Up</button>
+        <%if !current_user.present?%>
+            <%= link_to "Sign In", new_user_session_path, class: "px-4 py-2 border border-blue-600 text-blue-600 rounded-md hover:bg-blue-600 hover:text-white transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" %>
+
+			<%= link_to "Sign Up", new_user_registration_path, class: "px-4 py-2 border border-green-600 text-green-600 rounded-md hover:bg-green-600 hover:text-white transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2" %>
+			<%end%>
+		<%if current_user.present?%>
+        <%= link_to "Logout", destroy_user_session_path,class:"px-4 py-2 border border-green-600 text-green-600 rounded-md hover:bg-green-600 hover:text-white transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2", :method => :delete, :controller => 'users', :action => 'devise/sessions#new' %>
+     	<%end%>
+
         </div>
     </nav>
 </body>
